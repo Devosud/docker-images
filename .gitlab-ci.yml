@@ -1,5 +1,5 @@
-before_script:
-  - docker info
+stages:
+  - build
 
 build:flutter:
   stage: build
