@@ -1,0 +1,10 @@
+before_script:
+  - docker info
+
+build:flutter:
+  stage:
+    build
+  script:
+    - cd flutter
+    - docker build -t flutter-image .
+    
