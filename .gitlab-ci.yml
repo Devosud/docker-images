@@ -4,6 +4,5 @@ stages:
 build:flutter:
   stage: build
   script:
-    - cd /flutter
     - docker build -t flutter-image .
     
