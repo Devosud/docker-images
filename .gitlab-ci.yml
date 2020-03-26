@@ -3,6 +3,8 @@ stages:
 
 build:flutter:
   stage: build
+  tags:
+    - docker
   script:
     - cd flutter
     - docker build -t flutter-image .
