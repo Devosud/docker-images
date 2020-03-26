@@ -3,9 +3,17 @@ stages:
 
 build:flutter:
   stage: build
-  tags:
-    - docker
   script:
     - cd flutter
     - docker build -t flutter-image .
+  tags:
+    - docker
+    
+build:spring:
+  stage: build
+  script:
+    - cd spring
+    - docker build -t spring-image .
+  tags:
+    - docker
     
