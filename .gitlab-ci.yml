@@ -9,11 +9,18 @@ build:flutter:
   tags:
     - docker
     
-build:spring:
+build:gradle:
   stage: build
   script:
-    - cd spring
-    - docker build -t spring-image .
+    - cd gradle
+    - docker build -t gradle-image .
   tags:
     - docker
     
+build:maven:
+  stage: build
+  script:
+    - cd maven
+    - docker build -t maven-image .
+  tags:
+    - docker
