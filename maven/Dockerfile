@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:stretch
 
 #Maven options
 ENV MAVEN_OPTS="-DskipTests -Dmaven.repo.local=.m2/repository"
