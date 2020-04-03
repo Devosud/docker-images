@@ -6,10 +6,10 @@ RUN apt-get update
 ENV MAVEN_OPTS="-DskipTests -Dmaven.repo.local=.m2/repository"
 
 #Install Maven
-RUN apt-get install maven
+RUN apt-get -y install maven
 
 #Install Docker
-RUN apt-get install \
+RUN apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -21,4 +21,4 @@ RUN add-apt-repository \
    $(lsb_release -cs) \
    stable"
 RUN apt-get update
-RUN apt-get install docker-ce docker-ce-cli containerd.io
+RUN apt-get install -y docker-ce docker-ce-cli containerd.io
