@@ -1,4 +1,4 @@
-FROM docker:dind AS build_docker
+FROM docker:latest AS build_docker
 FROM maven:latest AS build_maven
 
 #Maven options
