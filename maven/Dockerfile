@@ -1,5 +1,7 @@
 FROM debian:stretch
 
+RUN apt-get update
+
 #Maven options
 ENV MAVEN_OPTS="-DskipTests -Dmaven.repo.local=.m2/repository"
 
