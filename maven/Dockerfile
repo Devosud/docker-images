@@ -1,14 +1,15 @@
 FROM debian:stretch
 
-RUN apt-get update
+# Prerequisites JAVA
+RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-#Maven options
+# Maven options
 ENV MAVEN_OPTS="-DskipTests -Dmaven.repo.local=.m2/repository"
 
-#Install Maven
+# Install Maven
 RUN apt-get -y install maven
 
-#Install Docker
+# Install Docker
 RUN apt-get install -y \
     apt-transport-https \
     ca-certificates \
