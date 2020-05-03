@@ -26,5 +26,8 @@ RUN cd /opt/android/tools/bin && ./sdkmanager --sdk_root=${ANDROID_SDK_ROOT} "bu
 # Download Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git
 
-# Run basic check to download Dark SDK
+# Run basic check to download Dart SDK
 RUN flutter doctor
+
+# Update the SDK if needed
+RUN flutter upgrade
