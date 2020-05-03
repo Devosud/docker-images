@@ -21,7 +21,7 @@ RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805
 RUN unzip commandlinetools-*.zip && rm commandlinetools-*.zip
 RUN mv tools /opt/android
 RUN cd /opt/android/tools/bin && yes | ./sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses
-RUN cd /opt/android/tools/bin && ./sdkmanager --sdk_root=${ANDROID_SDK_ROOT} "build-tools;29.0.2" "patcher;v4" "platform-tools" "platforms;android-29" "sources;android-29"
+RUN cd /opt/android/tools/bin && ./sdkmanager --sdk_root=${ANDROID_SDK_ROOT} "build-tools;29.0.3" "patcher;v4" "platform-tools" "platforms;android-29" "sources;android-29"
 
 # Download Flutter SDK
 RUN git clone https://github.com/flutter/flutter.git
