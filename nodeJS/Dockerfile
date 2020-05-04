@@ -8,8 +8,12 @@ WORKDIR /myapp
 RUN apt-get update \
     && apt-get install -y chromium
 
+# Apply NPM
+RUN npm install
 # Install Angular
 RUN npm install -g @angular/cli
+# Install Netlify for deploy
+RUN npm install -g netlify-cli
 
 # Add `/usr/src/app/node_modules/.bin` to $PATH
 ENV PATH /myapp/node_modules/.bin:$PATH
