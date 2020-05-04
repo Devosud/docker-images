@@ -5,7 +5,7 @@ build:flutter:
   stage: build
   script:
     - cd flutter
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY/public-devosud/docker-images/flutter:latest .
     - docker push $CI_REGISTRY/public-devosud/docker-images/flutter:latest
   tags:
@@ -15,7 +15,7 @@ build:nodeJS:
   stage: build
   script:
     - cd nodeJS
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodejs:latest .
     - docker push $CI_REGISTRY/public-devosud/docker-images/nodejs:latest
   tags:
@@ -25,7 +25,7 @@ build:docken:
   stage: build
   script:
     - cd docken
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker build -t $CI_REGISTRY/public-devosud/docker-images/docken:latest .
     - docker push $CI_REGISTRY/public-devosud/docker-images/docken:latest
   tags:
