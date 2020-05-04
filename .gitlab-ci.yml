@@ -16,8 +16,8 @@ build:nodeJS:
   script:
     - cd nodeJS
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodeJS:latest .
-    - docker push $CI_REGISTRY/public-devosud/docker-images/nodeJS:latest
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodejs:latest .
+    - docker push $CI_REGISTRY/public-devosud/docker-images/nodejs:latest
   tags:
     - docker
     
