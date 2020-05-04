@@ -5,22 +5,28 @@ build:flutter:
   stage: build
   script:
     - cd flutter
-    - docker build -t flutter-image .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/flutter:latest .
+    - docker push $CI_REGISTRY/public-devosud/docker-images/flutter:latest
   tags:
     - docker
     
-build:gradle:
+build:nodeJS:
   stage: build
   script:
-    - cd gradle
-    - docker build -t gradle-image .
+    - cd nodeJS
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodeJS:latest .
+    - docker push $CI_REGISTRY/public-devosud/docker-images/nodeJS:latest
   tags:
     - docker
     
-build:maven:
+build:docken:
   stage: build
   script:
-    - cd maven
-    - docker build -t maven-image .
+    - cd docken
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/docken:latest .
+    - docker push $CI_REGISTRY/public-devosud/docker-images/docken:latest
   tags:
     - docker
