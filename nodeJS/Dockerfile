@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:10.20.1-stretch
 
 # Set working directory
 RUN mkdir /myapp
