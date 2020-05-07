@@ -15,4 +15,4 @@ RUN npm install -g netlify-cli
 
 # Add `/usr/src/app/node_modules/.bin` to $PATH
 ENV PATH /myapp/node_modules/.bin:$PATH
-ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROME_BIN=/usr/bin/chromium
