@@ -2,7 +2,7 @@ FROM debian:stretch
 
 
 # Prerequisites
-RUN apt-get update && apt-get install -y curl unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
+RUN apt-get update && apt-get install -y curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
 
 # Check JAVA
 RUN java -version
