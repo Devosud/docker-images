@@ -1,8 +1,4 @@
-FROM trion/ng-cli:latest
-
-# Set working directory
-RUN mkdir /myapp
-WORKDIR /myapp
+FROM trion/ng-cli-karma:latest
 
 # Install Netlify CLI for deploy
 RUN npm install -g netlify-cli
