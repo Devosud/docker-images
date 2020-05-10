@@ -3,9 +3,6 @@ FROM debian:stretch
 # Prerequisites JAVA
 RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-# Maven options
-ENV MAVEN_OPTS="-Dmaven.repo.local=/root/.m2/repository"
-
 # Install Maven
 RUN apt-get -y install maven
 
