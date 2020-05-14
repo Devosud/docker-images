@@ -20,6 +20,7 @@ RUN curl -sL https://firebase.tools | bash
 
 # Install Ruby / RVM
 RUN curl -sSL https://get.rvm.io | bash -s stable --ruby
+RUN source /usr/local/rvm/scripts/rvm
 RUN rvm install ${RUBY_VERSION}
 
 # Install fastlane
