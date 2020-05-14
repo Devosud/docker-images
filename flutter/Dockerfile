@@ -2,7 +2,7 @@ FROM debian:stretch
 
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget dirmngr apt-transport-https lsb-release ca-certificates ruby-dev gcc make libffi-dev openjdk-8-jdk
+RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget dirmngr apt-transport-https lsb-release ca-certificates ruby-dev gcc make libffi-dev g++ openjdk-8-jdk
 
 # Install firebase-cli
 RUN curl -sL https://firebase.tools | bash
