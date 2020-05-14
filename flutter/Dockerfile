@@ -1,8 +1,14 @@
 FROM debian:stretch
 
 
-# Prerequisites
-RUN apt-get update && apt-get install -y curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
+# Install prerequisites
+RUN apt-get update && apt-get install -y curl git unzip xz-utils zip libglu1-mesa wget dirmngr apt-transport-https lsb-release ca-certificates ruby-full openjdk-8-jdk
+
+# Install firebase-cli
+RUN curl -sL https://firebase.tools | bash
+
+# Install fastlane
+RUN gem install fastlane -NV
 
 # Check JAVA
 RUN java -version
