@@ -2,26 +2,29 @@ FROM debian:stretch
 
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget dirmngr apt-transport-https lsb-release ca-certificates ruby-dev gcc make libffi-dev g++ openjdk-8-jdk
+RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
 
-# Install firebase-cli
-RUN curl -sL https://firebase.tools | bash
-
-# Install fastlane
-RUN gem install fastlane -NV
-
-# Check JAVA
-RUN java -version
+# Set ENV
+ENV FLUTTER_VERSION 1.17.0-stable
+ENV RUBY_VERSION ruby-2.7.1
+ENV ANDROID_SDK_VERSION 29
+ENV ANDROID_SDK_ROOT /opt/android
+ENV PATH "$PATH:/opt/flutter/bin"
 
 # Set working dir
 WORKDIR /opt
 RUN mkdir -p android
 
-# Set ENV
-ENV FLUTTER_VERSION 1.17.0-stable
-ENV ANDROID_SDK_VERSION 29
-ENV ANDROID_SDK_ROOT /opt/android
-ENV PATH "$PATH:/opt/flutter/bin"
+# Install firebase-cli
+RUN curl -sL https://firebase.tools | bash
+
+# Install Ruby / RVM
+RUN curl -sSL https://get.rvm.io | bash -s stable --ruby
+RUN rvm install ${RUBY_VERSION}
+
+# Install fastlane
+RUN gem install fastlane -NV
+
 
 # Download Android SDK
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
