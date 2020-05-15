@@ -1,13 +1,11 @@
-FROM debian:stretch
-FROM ruby:2.6-stretch
+FROM from:fastlanetools/fastlane
 
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
+RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget
 
 # Set ENV
 ENV FLUTTER_VERSION 1.17.0-stable
-ENV RUBY_VERSION ruby-2.7.1
 ENV ANDROID_SDK_VERSION 29
 ENV ANDROID_SDK_ROOT /opt/android
 ENV PATH "$PATH:/opt/flutter/bin"
@@ -45,7 +43,5 @@ RUN flutter upgrade
 
 # Check versions
 RUN java -version
-RUN node -v
-RUN npm -v
 RUN firebase -v
-RUN ruby -v
+RUN fastlane -v
