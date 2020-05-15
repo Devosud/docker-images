@@ -42,5 +42,5 @@ RUN flutter upgrade
 
 # Check versions
 RUN java -version
-RUN firebase -v
+RUN firebase -V
 RUN fastlane -v

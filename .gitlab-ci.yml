@@ -6,7 +6,7 @@ build:flutter:
   script:
     - cd flutter
     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY/public-devosud/docker-images/flutter:latest .
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/flutter:latest --pull --no-cache .
     - docker push $CI_REGISTRY/public-devosud/docker-images/flutter:latest
   tags:
     - docker
