@@ -1,5 +1,5 @@
 FROM debian:stretch
-FROM fastlanetools/fastlane:latest
+FROM ruby:2.6-stretch
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget
@@ -19,7 +19,6 @@ RUN curl -sL https://firebase.tools | bash
 
 # Install fastlane
 RUN gem install fastlane -NV
-
 
 # Download Android SDK
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
