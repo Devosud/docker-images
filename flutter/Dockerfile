@@ -1,4 +1,5 @@
 FROM debian:stretch
+FROM ruby:2.6-stretch
 
 
 # Install prerequisites
@@ -47,3 +48,10 @@ RUN flutter doctor
 
 # Update the SDK if needed
 RUN flutter upgrade
+
+# Check versions
+RUN java -version
+RUN node -v
+RUN npm -v
+RUN firebase -v
+RUN ruby -v
