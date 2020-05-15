@@ -2,7 +2,7 @@ FROM debian:stretch
 FROM ruby:2.6-stretch
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget
+RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
 
 # Set ENV
 ENV FLUTTER_VERSION 1.17.0-stable
