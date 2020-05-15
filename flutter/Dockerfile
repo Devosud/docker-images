@@ -1,5 +1,4 @@
-FROM from:fastlanetools/fastlane
-
+FROM fastlanetools/fastlane:latest
 
 # Install prerequisites
 RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget
