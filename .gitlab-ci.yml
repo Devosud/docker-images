@@ -16,7 +16,7 @@ build:nodeJS:
   script:
     - cd nodeJS
     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodejs:latest .
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/nodejs:latest --pull --no-cache .
     - docker push $CI_REGISTRY/public-devosud/docker-images/nodejs:latest
   tags:
     - docker
@@ -26,7 +26,7 @@ build:docken:
   script:
     - cd docken
     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY/public-devosud/docker-images/docken:latest .
+    - docker build -t $CI_REGISTRY/public-devosud/docker-images/docken:latest --pull --no-cache .
     - docker push $CI_REGISTRY/public-devosud/docker-images/docken:latest
   tags:
     - docker
