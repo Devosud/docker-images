@@ -1,10 +1,7 @@
 FROM debian:stretch
 
 # Prerequisites JAVA
-RUN apt-get update && apt-get install -y openjdk-8-jdk
-
-# Install Maven
-RUN apt-get -y install maven
+RUN apt-get update && apt-get install -y openjdk-8-jdk maven
 
 # Install Docker
 RUN apt-get install -y \
@@ -20,3 +17,7 @@ RUN add-apt-repository \
    stable"
 RUN apt-get update
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# Check versions
+RUN java -version
+RUN mvn -V
