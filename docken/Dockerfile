@@ -20,4 +20,3 @@ RUN apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Check versions
 RUN java -version
-RUN mvn -V
