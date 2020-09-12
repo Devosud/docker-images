@@ -28,3 +28,14 @@ jobs:
           accessToken: ${{ github.token }}
           context: ./docken
           imageName: 'docken'
+  build_flutter:
+      runs-on: ubuntu-latest
+      steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v2
+      - name: 'Build and publish Flutter image'
+        uses: matootie/github-docker@v3.1.0
+        with:
+          accessToken: ${{ github.token }}
+          context: ./flutter
+          imageName: 'flutter'
