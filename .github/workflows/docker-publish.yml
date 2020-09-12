@@ -1,0 +1,30 @@
+
+name: Docker publish
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build_nodejs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Checkout code'
+      uses: actions/checkout@v2
+    - name: 'Build and publish NodeJs image'
+      uses: matootie/github-docker@v3.1.0
+      with:
+        accessToken: ${{ github.token }}
+        context: ./nodeJS
+        imageName: 'nodejs'
+  build_docken:
+      runs-on: ubuntu-latest
+      steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v2
+      - name: 'Build and publish Docken image'
+        uses: matootie/github-docker@v3.1.0
+        with:
+          accessToken: ${{ github.token }}
+          context: ./docken
+          imageName: 'docken'
