@@ -1,11 +1,11 @@
-FROM debian:stretch
-FROM ruby:2.6-stretch
+FROM debian:buster
 
 # Install prerequisites
-RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget openjdk-8-jdk
+RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget default-jre
 
 # Set ENV
-ENV FLUTTER_VERSION 1.20.3-stable
+ENV FLUTTER_VERSION 1.22.1-stable
+ENV NODE_VERSION 14
 ENV ANDROID_SDK_VERSION 29
 ENV ANDROID_SDK_ROOT /opt/android
 ENV PATH "$PATH:/opt/flutter/bin"
@@ -14,11 +14,12 @@ ENV PATH "$PATH:/opt/flutter/bin"
 WORKDIR /opt
 RUN mkdir -p android
 
-# Install firebase-cli
-RUN curl -sL https://firebase.tools | bash
+# Install NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | sudo bash -
+RUN apt install -y nodejs
 
-# Install fastlane
-RUN gem install fastlane -NV
+# Install firebase-cli
+RUN npm install -g firebase-tools
 
 # Download Android SDK
 RUN wget https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
@@ -37,10 +38,6 @@ RUN rm flutter.tar.xz
 # Run basic check to download Dart SDK
 RUN flutter doctor
 
-# Update the SDK if needed
-RUN flutter upgrade
-
 # Check versions
 RUN java -version
 RUN firebase -V
-RUN fastlane -v
