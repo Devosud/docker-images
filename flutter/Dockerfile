@@ -4,9 +4,9 @@ FROM debian:buster
 RUN apt-get update && apt-get install -y sudo curl git unzip xz-utils zip libglu1-mesa wget default-jre
 
 # Set ENV
-ENV FLUTTER_VERSION 1.22.5-stable
+ENV FLUTTER_VERSION 1.22.6-stable
 ENV NODE_VERSION 14
-ENV ANDROID_SDK_VERSION 29
+ENV ANDROID_SDK_VERSION 30
 ENV ANDROID_SDK_ROOT /opt/android
 ENV PATH "$PATH:/opt/flutter/bin"
 
