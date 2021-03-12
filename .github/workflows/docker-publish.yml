@@ -23,7 +23,7 @@ jobs:
           context: ./angular-workflow
           file: ./angular-workflow/Dockerfile
           push: true
-          tags: devosud/angular-workflow:latest
+          tags: vareversat/angular-workflow:latest
   flutter:
       runs-on: ubuntu-latest
       steps:
@@ -42,4 +42,4 @@ jobs:
             context: ./flutter
             file: ./flutter/Dockerfile
             push: true
-            tags: devosud/flutter:latest
+            tags: vareversat/flutter:latest
